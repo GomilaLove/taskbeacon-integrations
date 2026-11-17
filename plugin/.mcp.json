@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "taskbeacon": {
+      "type": "http",
+      "url": "https://taskbeacon.io/mcp"
+    }
+  }
+}

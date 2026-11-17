@@ -1,0 +1,2 @@
+# crontab -e  (this example runs every day at 06:00)
+0 6 * * *  curl -fsS -m 10 https://taskbeacon.io/ping/YOUR-JOB-ADDRESS/start >/dev/null; /path/to/your-job.sh; curl -fsS -m 10 "https://taskbeacon.io/ping/YOUR-JOB-ADDRESS/$?" >/dev/null

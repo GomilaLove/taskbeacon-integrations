@@ -1,0 +1,9 @@
+{
+  "name": "taskbeacon",
+  "displayName": "TaskBeacon",
+  "version": "1.0.0",
+  "description": "Know when your scheduled scripts didn't run: ask what failed last night and why, read run history and errors, and add monitoring to a Python, R, Stata, PowerShell or cron script from a conversation.",
+  "author": { "name": "TaskBeacon", "url": "https://taskbeacon.io" },
+  "homepage": "https://taskbeacon.io/docs/ai-assistants/",
+  "license": "MIT"
+}

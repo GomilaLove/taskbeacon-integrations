@@ -1,0 +1,18 @@
+-- SQL Server Agent: T-SQL cannot call a URL, so add job steps around your T-SQL step.
+-- curl.exe is built into Windows Server 2019+ and Windows 10/11. Step type: Operating system (CmdExec).
+--
+-- Step 1 "TaskBeacon start"   Type: Operating system (CmdExec)
+--   curl.exe -fsS -m 10 "https://taskbeacon.io/ping/YOUR-JOB-ADDRESS/start"
+--   On success: Go to the next step.   On failure: Go to the next step.
+--
+-- Step 2 "Your T-SQL"   Type: Transact-SQL script (T-SQL)
+--   EXEC dbo.your_procedure;
+--   On success: Go to step 3.   On failure: Go to step 4.
+--
+-- Step 3 "TaskBeacon success"   Type: Operating system (CmdExec)
+--   curl.exe -fsS -m 10 "https://taskbeacon.io/ping/YOUR-JOB-ADDRESS"
+--   On success: Quit the job reporting success.
+--
+-- Step 4 "TaskBeacon fail"   Type: Operating system (CmdExec)
+--   curl.exe -fsS -m 10 "https://taskbeacon.io/ping/YOUR-JOB-ADDRESS/fail"
+--   On success: Quit the job reporting failure.   On failure: Quit the job reporting failure.
